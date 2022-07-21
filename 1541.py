@@ -5,7 +5,7 @@ sum = 0
 for i in a :
     if a.index(i)==0 :
         
-    s = i.split('+')
+        s = i.split('+')
     for j in s :
         sum-=int(j)
 
