@@ -22,4 +22,3 @@ for j in card_list :
     else :
         print(0,end=" ")
 
-    
