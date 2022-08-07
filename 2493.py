@@ -3,12 +3,13 @@ import sys
 num = int(sys.stdin.readline())
 
 lst = list(map(int, sys.stdin.readline().split()))
-r=[0] *num
+r=[0] * num
 # 결과 나타내는 리스트
 s=[]
 # 비교하는 리스트 stack
 si=[]
 i = num-1
+
 s.append(lst[i])
 si.append(i)
 
@@ -25,5 +26,5 @@ while i >0 :
     si.append(i)
     
 
-
-print(r)
+for i in r :
+    print(i,end=' ')
