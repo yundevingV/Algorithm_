@@ -6,7 +6,12 @@ n  = int(input())
 graph=[]
 
 count =[]
+
 v=0
+
+#아파트 갯수
+
+
 for i in range(n) :
     graph.append(list(map(int, input())))
 def dfs(x,y) :
@@ -29,11 +34,13 @@ def dfs(x,y) :
 
 c=0
 r=[]
+#아파트갯수 배열
 for i in range(n) :
     for j in range(n) :
         if dfs(i,j) == True :
             r.append(v)
             c +=1
+            #c= reult
             v=0
 
 print(c)
@@ -42,4 +49,3 @@ r.sort()
 
 for i in r :
     print(i)
-
