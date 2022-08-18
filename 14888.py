@@ -15,7 +15,6 @@ def aa(sum,c,p,m,mul,d) :
 
     
     if end +1 ==  c  :
-
         result_max = max(result_max,sum)
         result_min = min(result_min,sum)
 
@@ -27,7 +26,7 @@ def aa(sum,c,p,m,mul,d) :
     if mul > 0 :
         aa(sum * num[c],c+1,p,m,mul-1,d)
     if d > 0 :
-        aa(int(sum / num[c]),c+1,p,m,mul,d-1)
+        aa((sum // num[c]),c+1,p,m,mul,d-1)
 
 
 
