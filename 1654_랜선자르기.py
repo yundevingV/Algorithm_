@@ -26,7 +26,7 @@ while start <= end :
     else :
         end = mid - 1 
 
-print(mid-1)
+print(end)
 
 #이분탐색은 일단 반을 잘라보고 
 #그보다 작으면 start = mid +1
