@@ -8,11 +8,22 @@ for _ in range(n) :
     o = int(sys.stdin.readline())
     lst.append(o)
 
-lst.sort()
 
-start = 1 
-end = max(lst)
+start = min(lst)
+end = max(lst)-min(lst)
 
 while start <= end :
     mid =(start + end) // 2
-    
+    p=0
+    cnt=0
+    for i in lst :
+        pre = lst[p]
+        if mid + pre <= i :
+            p+=1
+            cnt+=1
+    if c <= cnt :
+        end = mid - 1
+    else :
+        start = mid + 1
+
+print(end)
