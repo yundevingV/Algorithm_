@@ -17,7 +17,7 @@ end = max(lst)-min(lst)
 #특이점은 end에서 집이 0에 없고 1이나 2부터 있을 수 있으니 -min(lst)를 해줌.
 
 
-result = []
+result = 0
 #결과 담을 배열
 
 while start <= end :
@@ -31,14 +31,13 @@ while start <= end :
             pre=i
             cnt+=1
 
-    if c > cnt :
+    if cnt >= c :
+            result = mid
+            start = mid + 1
+    else :
             end = mid - 1
             
-    else :
-            start = mid + 1
-            result.append(mid) 
-
-print(max(result))
+print(result)
 
 
 #c > cnt 공유기가 부족한 경우
