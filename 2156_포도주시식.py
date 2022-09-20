@@ -16,6 +16,8 @@ for i in range(3,n) :
     d[0] = lst[0]
     d[1] = lst[1]
     d[2] = lst[2]
-    d[i] = max(d[i-3] + d[i-2] , d[i-2] + lst[i] , d[i-3]) 
+    d[i] = max(d[i-3] + d[i-2] , d[i-2] + lst[i] , d[i-3])
+
+print(d) 
     
 print(max(d)) 
