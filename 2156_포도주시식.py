@@ -4,12 +4,17 @@ n = int(sys.stdin.readline())
 
 d = [0] * (10001)
 
-lst = [0] * (10001)
+# lst = [0] * (10001)
+
+# for i in range(n) :
+#     x = int(sys.stdin.readline())
+#     lst[i] = x
+
+lst = []
 
 for i in range(n) :
     x = int(sys.stdin.readline())
-    lst[i] = x
-
+    lst.append(x)
 
 d[0] = lst[0]
 d[1] = lst[1] + lst[0]
