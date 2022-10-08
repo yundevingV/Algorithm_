@@ -16,7 +16,7 @@ for _ in range(m) :
 
 def bellmanFord(start) :
     distance[start] = 0
-    global nev
+    
     for i in range(n) :
         for cur,nextNode,cost in edges :
             if distance[cur] != INF and distance[nextNode] > distance[cur] + cost :
