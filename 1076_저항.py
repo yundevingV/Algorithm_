@@ -1,6 +1,5 @@
 import sys
 result =0
-
 def fs1(a) :
     global result
     if a == 'black' : 
@@ -73,6 +72,7 @@ def f(a) :
 a1 = input()
 a2 = input()
 a3 = input()
+
 
 fs1(a1)
 fs2(a2)
