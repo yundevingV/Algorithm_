@@ -3,8 +3,6 @@ import math
 
 t = int(sys.stdin.readline())
 
-
-
 for i in range(t) :
     test = []
     lst = []
@@ -33,5 +31,3 @@ for i in range(t) :
         print(lst[printNum],lst[printNum])
     else :
         print(lst[printNum-1],lst[printNum])
-
-
