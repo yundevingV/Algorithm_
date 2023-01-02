@@ -14,7 +14,6 @@ for (let i = 1; i < input.length; i++) {
         numbers.push(input[i].split(' '));
     }
 }
-
 //dp테이블 생성
 let dp = []
 
