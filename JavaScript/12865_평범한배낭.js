@@ -9,28 +9,33 @@ let inputs = input[0].split(" ").map(Number)
 let n = inputs[0]
 let weight = inputs[1]
 
-let lst = []
+let w = []
+let v = []
 
-for(let i = 1 ; i < n+1 ; i++){
-    lst.push(input[i].split(" ").map(Number))
-}
 let dp = []
 
-for(let i = 0 ; i< n ; i++){
-    dp.push(lst[i])
+for(let i = 0 ; i< n+1 ; i++){
+    dp[i] = []
+    for(let j = 0 ; j < weight +1 ; j++){
+        dp[i][j] = 0
+    }
+}
+for(let i = 1 ; i < n+1 ; i++){
+    let numbers = (input[i].split(' ').map(Number))
+    w.push(numbers[0])
+    v.push(numbers[1])
 }
 
-c(dp)
+for(let i = 1 ; i < n+1 ; i++){
+    for(let j = 1 ; j < weight+1 ; j++){
+        if (j < w[i-1]){
+            dp[i][j] = dp[i-1][j]
+        } else {
+            dp[i][j] = Math.max(dp[i-1][j] , dp[i-1][j-w[i-1]] + v[i-1])
 
-for(let i = 0 ; i < n ; i++){
-    for(let j = 0 ; j < n ; j++){
-        
-        if (weight > dp[i][0]) {
-            c(i,j)
-            dp[i][0] += dp[j][0]
-            dp[i][1] += dp[j][1]
-        } 
+        }
+    
     }
 }
 
-c(dp)
+c(dp[n][weight])
