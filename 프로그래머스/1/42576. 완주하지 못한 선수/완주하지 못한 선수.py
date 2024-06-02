@@ -9,5 +9,5 @@ def solution(participant, completion):
     
     for i in c1 :
         if c1[i] != c2[i] :
-            answer = i;
+            return i;
     return answer
