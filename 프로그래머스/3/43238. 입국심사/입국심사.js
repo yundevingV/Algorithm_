@@ -2,7 +2,7 @@ function solution(n, times) {
     var answer = 0;
     
     // low = left , high = right
-    let low = 1;
+    let low = Math.min(...times);
     let high = Math.max(...times) * n;
     
     while(low <= high){
