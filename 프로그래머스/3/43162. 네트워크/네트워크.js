@@ -1,22 +1,21 @@
-function solution(n, computers) {
-    var answer = 0;
-    let visited = new Array(n).fill(false);
-
-    const dfs = (index) => {
-        visited[index] = true;
-        for (let i = 0; i < n; i++) {
-            if (computers[index][i] === 1 && !visited[i]) {
-                dfs(i);
-            }
-        }
-    };
-
-    for (let i = 0; i < n; i++) {
-        if (!visited[i]) {
-            dfs(i);
-            answer += 1;
+function dfs(visited, computers, index) {
+    visited[index] = 1; 
+    for (let i = 0; i < computers[index].length; i++) {
+        if (!visited[i] && computers[index][i]) {
+            dfs(visited, computers, i);
         }
     }
+}
 
-    return answer;
+function solution(n, computers) {
+    let answer = 0; 
+    let visited = new Array(n).fill(0);
+
+    for (let i = 0; i < n; i++) {
+        if (!visited[i]) { 
+            dfs(visited, computers, i); 
+            answer++; 
+        }
+    }
+    return answer; 
 }
