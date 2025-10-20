@@ -1,24 +1,35 @@
 function solution(s){
-    var answer = true;
-    let stack = []
+    let stack = [];
     
-    for (let i =0 ; i < s.length ; i++){    
-        if(s[i] == '('){
-            stack.push(s[i])
-        }
-        else if(s[i] == ')'){
-            if(stack[stack.length-1] == '('){
-                stack.pop()    
+    if(s.length === 0) {
+        return false;
+    } 
+    else {
+        for(let i=0;i<s.length;i++){
+            // '(' 일때
+            if(s[i] === '(') {
+                // able                 
+                if(stack.length === 0 || stack[stack.length-1] === '(') {
+                    stack.push(s[i]);
+                }
+                // unable
+                else if(stack[stack.length-1] === ')') {
+                    return false;
+                }
             }
-            else { 
-                answer = false
-                break
-            }
+            // ')' 일때
+            if(s[i] === ')') {
+                // able
+                if(stack[stack.length-1] === '(') {
+                    stack.pop();
+                }
+                // unable
+                else if(stack.length === 0 || stack[stack.length-1] === ')') {
+                    return false;
+                }
+             }
         }
-        
     }
-
-    if (stack.length > 0) { answer = false}
-
-    return answer;
+    if(stack.length === 0) return true;
+    else return false;
 }
