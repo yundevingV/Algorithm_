@@ -1,32 +1,35 @@
 function solution(maps) {
-    let W = maps[0].length;
-    let H = maps.length;
+    const height = maps.length;
+    const width = maps[0].length;
     
-    let visited = Array.from({ length: H }, () => new Array(W).fill(false));
+    // 1. 방향 벡터 (상, 하, 좌, 우)
+    const dx = [0, 0, 1, -1];
+    const dy = [1, -1, 0, 0];
     
-    let dx = [1, -1, 0, 0];
-    let dy = [0, 0, 1, -1];
-    
-    let queue = [[0, 0]];
-    visited[0][0] = true;
+
+    let visited = Array.from({ length: height }, () => Array(width).fill(0));
+    let queue = [];
+    queue.push([0, 0]); 
+    visited[0][0] = 1;  
     
     while (queue.length > 0) {
-        let [x, y] = queue.shift();
+        let [y, x] = queue.shift(); 
         
         for (let i = 0; i < 4; i++) {
-            let nx = x + dx[i];
             let ny = y + dy[i];
+            let nx = x + dx[i];
             
-            if (nx >= 0 && nx < H && ny >= 0 && ny < W) {
-                if (!visited[nx][ny] && maps[nx][ny] === 1) {
-                    visited[nx][ny] = true;
-                    maps[nx][ny] = maps[x][y] + 1;
-                    queue.push([nx, ny]);
+            if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
+                if (maps[ny][nx] === 1 && visited[ny][nx] === 0) {
+                    visited[ny][nx] = 1;
+                    maps[ny][nx] = maps[y][x] + 1;
+                    queue.push([ny, nx]);
                 }
             }
         }
     }
+
+    const answer = maps[height - 1][width - 1];
     
-    let answer = maps[H - 1][W - 1];
     return answer === 1 ? -1 : answer;
 }
