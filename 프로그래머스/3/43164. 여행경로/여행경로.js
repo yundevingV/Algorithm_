@@ -1,26 +1,21 @@
 function solution(tickets) {
     var answer = [];
-    let len = tickets.length
-    // 알파벳순서
-    tickets.sort()
-    // 방문
-    let visited = Array(len).fill(false)
-    
-    const dfs = (now,count,route) => {
-        if(count === len){
-            answer.push(route)
-            return
+    const sortedTickets = tickets.sort();
+    let visited = new Array(tickets.length).fill(0);
+    const dfs = (start,count,route) => {
+        if(count === tickets.length) {
+            answer.push(route);
+            return;
         }
-        for(let i=0;i<len;i++){
-            if(!visited[i] && now === tickets[i][0]){
-                visited[i] = true
-                dfs(tickets[i][1],count+1,route+" "+tickets[i][1])
-                visited[i] = false
+        for(let i=0;i<tickets.length;i++) {
+            if(!visited[i] && start === tickets[i][0]) {
+                visited[i] = 1;
+                dfs(tickets[i][1],count+1,route+" "+tickets[i][1]);
+                visited[i] = 0;
             }
         }
     }
-    
-    dfs("ICN",0,"ICN")
+    dfs("ICN",0,"ICN");
     
     return answer[0].split(' ');
 }
